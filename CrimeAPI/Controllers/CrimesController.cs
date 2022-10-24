@@ -1,7 +1,4 @@
-﻿
-using MongoDB.Bson;
-
-namespace CrimeAPI.Controllers
+﻿namespace CrimeAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -22,7 +19,6 @@ namespace CrimeAPI.Controllers
                 return await _crimesService.GetSingleAsync(id);
             return BadRequest();
         }
-
 
         [HttpPost]
         public async Task<IActionResult> CreateNewAsync(CrimeCreateDTO model)
