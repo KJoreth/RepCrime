@@ -17,6 +17,7 @@
 
         public async Task<List<Crime>> GetAllAsync()
             => await _crimesCollection.Find(_ => true).ToListAsync();
+
         public async Task<Crime> GetSingleAsync(string id)
         {
             var result = await _crimesCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
@@ -24,8 +25,10 @@
                 throw new ResourceNotFoundException($"Crime with Id {id} does not exists");
             return result;
         }
+
         public async Task CreateAsync(Crime crime)
             => await _crimesCollection.InsertOneAsync(crime);
+
         public async Task UpdateAsync(string id, Crime crime)
         {
             var result = await _crimesCollection.Find(x => x.Id == id).FirstOrDefaultAsync();

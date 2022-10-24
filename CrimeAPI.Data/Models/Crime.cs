@@ -1,4 +1,5 @@
-﻿namespace CrimeAPI.Data.Models
+﻿
+namespace CrimeAPI.Data.Models
 {
     public record Crime
     {

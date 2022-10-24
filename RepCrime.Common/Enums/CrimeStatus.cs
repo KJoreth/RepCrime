@@ -1,4 +1,4 @@
-﻿namespace CrimeAPI.Data.Enums
+﻿namespace RepCrime.Common.Enums
 {
     public enum CrimeStatus
     {

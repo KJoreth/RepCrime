@@ -8,4 +8,6 @@ global using EnforcerAPI.Data.Models;
 global using EnforcerAPI.Services.Interfaces;
 global using EnforcerAPI.Services;
 global using Microsoft.AspNetCore.Mvc;
+global using RepCrime.Common.Enums;
+global using RepCrime.Common.Models;
 

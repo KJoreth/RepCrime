@@ -1,4 +1,5 @@
-﻿namespace CrimeAPI.Controllers
+﻿
+namespace CrimeAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -30,5 +31,20 @@
             }
             return BadRequest();
         }
+
+        [HttpPut("{id}/assign")]
+        public async Task<IActionResult> AssignEnforcerAsync(string id, AssignRequest request)
+        {
+            await _crimesService.AssingEnforcerAsync(id, request);
+            return Ok();
+        }
+
+        [HttpPut("{id}/status")]
+        public async Task<IActionResult> UpdateCrimeStatusAsync(string id, CrimeStatus crimeStatus)
+        {
+            await _crimesService.UpdateCrimeStatusAsync(id, crimeStatus);
+            return Ok();
+        }
+
     }
 }

@@ -11,8 +11,16 @@
         [HttpGet]
         public async Task<ActionResult<List<EnforcerSimpleDTO>>> GetAllAsync()
             => await _enforcersService.GetAllAsync();
-        [HttpGet]
+
+        [HttpGet("{id}")]
         public async Task<ActionResult<EnforcerDetailedDTO>> GetSingle(string id)
             => await _enforcersService.GetSingleAsync(id);
+
+        [HttpPut("{id}/assign")]
+        public async Task<IActionResult> AssignEnforcerAsync(string id, string crimeId)
+        {
+            await _enforcersService.AssingEnforcerAsync(crimeId, id);
+            return Ok();
+        }
     }
 }

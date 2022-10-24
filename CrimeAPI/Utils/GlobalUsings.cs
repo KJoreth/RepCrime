@@ -9,3 +9,5 @@ global using CrimeAPI.Services;
 global using Microsoft.AspNetCore.Mvc;
 global using CrimeAPI.Data.Enums;
 global using MongoDB.Bson;
+global using RepCrime.Common.Enums;
+global using RepCrime.Common.Models;
