@@ -22,12 +22,12 @@ namespace EnforcerAPI.Middlewares
                 await context.Response.WriteAsJsonAsync(new { Error = e.Message });
 
             }
-            catch (Exception e)
-            {
-                _logger.LogError(e, e.Message);
-                context.Response.StatusCode = 500;
-                await context.Response.WriteAsJsonAsync(new { Error = "Something went wrong" });
-            }
+            //catch (Exception e)
+            //{
+            //    _logger.LogError(e, e.Message);
+            //    context.Response.StatusCode = 500;
+            //    await context.Response.WriteAsJsonAsync(new { Error = "Something went wrong" });
+            //}
 
         }
     }

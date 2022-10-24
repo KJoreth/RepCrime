@@ -4,6 +4,6 @@
     {
         public string EnforcerId { get; set; }
         public EnforcerRanks Rank { get; set; }
-        public List<Crime> Crimes { get; set; }
+        public List<CrimeDTO> Crimes { get; set; }
     }
 }
