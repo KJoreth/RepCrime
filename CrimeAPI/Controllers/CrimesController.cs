@@ -1,5 +1,4 @@
-﻿
-namespace CrimeAPI.Controllers
+﻿namespace CrimeAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

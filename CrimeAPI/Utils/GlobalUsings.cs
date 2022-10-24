@@ -11,3 +11,5 @@ global using CrimeAPI.Data.Enums;
 global using MongoDB.Bson;
 global using RepCrime.Common.Enums;
 global using RepCrime.Common.Models;
+global using RepCrime.Common.Exeptions;
+global using CrimeAPI.Middlewares;

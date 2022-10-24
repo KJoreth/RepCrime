@@ -1,5 +1,3 @@
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,7 +9,8 @@ builder.Services.AddScoped<IEnforcerRepository, EnforcerRepository>();
 builder.Services.AddScoped<ICrimeRepository, CrimeRepository>();
 builder.Services.AddScoped<IEnforcersService, EnforcersService>();
 builder.Services.AddHttpClient();
-
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
+builder.Services.AddScoped<LoggingMiddleware>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -27,6 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<LoggingMiddleware>();
+app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
