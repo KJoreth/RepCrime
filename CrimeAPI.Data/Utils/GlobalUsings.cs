@@ -7,3 +7,4 @@ global using CrimeAPI.Data.DbConfig;
 global using Microsoft.Extensions.Options;
 global using RepCrime.Common.Exeptions;
 global using CrimeAPI.Data.MongoDb.Interfaces;
+global using System.ComponentModel.DataAnnotations;
