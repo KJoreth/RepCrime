@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepCrime.Crime", "RepCrime.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrimeAPI.Data", "CrimeAPI.Data\CrimeAPI.Data.csproj", "{B147771E-2295-4243-8081-D444FBB09E99}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{8EF9F14D-1C12-4B06-9D21-8A2ADAF58467}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepCrime.Common", "RepCrime.Common\RepCrime.Common.csproj", "{C49F69B1-279B-4EAB-9A76-59F84C6CE3B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,10 @@ Global
 		{B147771E-2295-4243-8081-D444FBB09E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B147771E-2295-4243-8081-D444FBB09E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B147771E-2295-4243-8081-D444FBB09E99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C49F69B1-279B-4EAB-9A76-59F84C6CE3B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C49F69B1-279B-4EAB-9A76-59F84C6CE3B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C49F69B1-279B-4EAB-9A76-59F84C6CE3B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C49F69B1-279B-4EAB-9A76-59F84C6CE3B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D8F51699-A63F-44E0-A176-BF34E3F9B413} = {0249C2AF-249B-4F8B-9A21-3E9B127BB538}
 		{B147771E-2295-4243-8081-D444FBB09E99} = {0249C2AF-249B-4F8B-9A21-3E9B127BB538}
+		{C49F69B1-279B-4EAB-9A76-59F84C6CE3B9} = {8EF9F14D-1C12-4B06-9D21-8A2ADAF58467}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9881F1F1-1214-4973-B683-08961A977197}

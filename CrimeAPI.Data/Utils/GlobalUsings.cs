@@ -1,3 +1,9 @@
 ﻿global using CrimeAPI.Data.Enums;
 global using MongoDB.Bson;
 global using MongoDB.Bson.Serialization.Attributes;
+global using CrimeAPI.Data.Models;
+global using MongoDB.Driver;
+global using CrimeAPI.Data.DbConfig;
+global using Microsoft.Extensions.Options;
+global using RepCrime.Common.Exeptions;
+global using CrimeAPI.Data.MongoDb.Interfaces;
