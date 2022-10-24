@@ -1,5 +1,4 @@
-﻿
-namespace CrimeAPI.MapperProfiles
+﻿namespace CrimeAPI.MapperProfiles
 {
     public class CrimeProfile : Profile
     {
@@ -7,6 +6,7 @@ namespace CrimeAPI.MapperProfiles
         {
             CreateMap<CrimeCreateDTO, Crime>();
             CreateMap<Crime, CrimeDetailedDTO>();
+            CreateMap<Crime, CrimeSimpleDTO>();
         }
     }
 }

@@ -17,5 +17,17 @@ namespace CrimeAPI.Services
             await _mongoDb.CreateAsync(crime);
             return _mapper.Map<CrimeDetailedDTO>(crime);
         }
+        public async Task<List<CrimeSimpleDTO>> GetAllAsync()
+        {
+            var crimes = await _mongoDb.GetAllAsync();
+            return _mapper.Map<List<CrimeSimpleDTO>>(crimes);
+        }
+        public async Task<CrimeDetailedDTO> GetSingleAsync(string id)
+        {
+            var crime = await _mongoDb.GetSingleAsync(id);
+            return _mapper.Map<CrimeDetailedDTO>(crime);
+        }
+
+            
     }
 }

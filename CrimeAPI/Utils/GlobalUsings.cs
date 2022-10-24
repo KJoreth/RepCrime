@@ -7,3 +7,4 @@ global using CrimeAPI.Data.Models;
 global using CrimeAPI.Services.Interfaces;
 global using CrimeAPI.Services;
 global using Microsoft.AspNetCore.Mvc;
+global using CrimeAPI.Data.Enums;
