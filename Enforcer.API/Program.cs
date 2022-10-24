@@ -1,9 +1,15 @@
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 var connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
 builder.Services.AddDbContext<EnforcerContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<IEnforcerRepository, EnforcerRepository>();
+builder.Services.AddScoped<ICrimeRepository, CrimeRepository>();
+builder.Services.AddScoped<IEnforcersService, EnforcersService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
