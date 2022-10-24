@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrimeAPI", "CrimeAPI\CrimeAPI.csproj", "{D8F51699-A63F-44E0-A176-BF34E3F9B413}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrimeAPI", "CrimeAPI\CrimeAPI.csproj", "{D8F51699-A63F-44E0-A176-BF34E3F9B413}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepCrime.Crime", "RepCrime.Crime", "{0249C2AF-249B-4F8B-9A21-3E9B127BB538}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrimeAPI.Data", "CrimeAPI.Data\CrimeAPI.Data.csproj", "{B147771E-2295-4243-8081-D444FBB09E99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrimeAPI.Data", "CrimeAPI.Data\CrimeAPI.Data.csproj", "{B147771E-2295-4243-8081-D444FBB09E99}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{8EF9F14D-1C12-4B06-9D21-8A2ADAF58467}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepCrime.Common", "RepCrime.Common\RepCrime.Common.csproj", "{C49F69B1-279B-4EAB-9A76-59F84C6CE3B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepCrime.Common", "RepCrime.Common\RepCrime.Common.csproj", "{C49F69B1-279B-4EAB-9A76-59F84C6CE3B9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepCrime.Enforcer", "RepCrime.Enforcer", "{727D300B-20A0-4FEA-899A-4D046C9B72B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnforcerAPI", "Enforcer.API\EnforcerAPI.csproj", "{EE9E1632-C4C0-45E5-9D96-D9886EA46806}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnforcerAPI", "Enforcer.API\EnforcerAPI.csproj", "{EE9E1632-C4C0-45E5-9D96-D9886EA46806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnforcerAPI.Data", "EnforcerAPI.Data\EnforcerAPI.Data.csproj", "{A987575A-CB97-488A-924A-A968C4282329}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnforcerAPI.Data", "EnforcerAPI.Data\EnforcerAPI.Data.csproj", "{A987575A-CB97-488A-924A-A968C4282329}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BCC54DA2-3784-483A-80F1-0D75D84D5271}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{A987575A-CB97-488A-924A-A968C4282329}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A987575A-CB97-488A-924A-A968C4282329}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A987575A-CB97-488A-924A-A968C4282329}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCC54DA2-3784-483A-80F1-0D75D84D5271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCC54DA2-3784-483A-80F1-0D75D84D5271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCC54DA2-3784-483A-80F1-0D75D84D5271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCC54DA2-3784-483A-80F1-0D75D84D5271}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
