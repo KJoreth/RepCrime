@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace EnforcerAPI.Controllers
+﻿namespace EnforcerAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -13,5 +11,8 @@ namespace EnforcerAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<List<EnforcerSimpleDTO>>> GetAllAsync()
             => await _enforcersService.GetAllAsync();
+        [HttpGet]
+        public async Task<ActionResult<EnforcerDetailedDTO>> GetSingle(string id)
+            => await _enforcersService.GetSingleAsync(id);
     }
 }

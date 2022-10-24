@@ -1,5 +1,4 @@
-﻿
-namespace EnforcerAPI.Services
+﻿namespace EnforcerAPI.Services
 {
     public class EnforcersService : IEnforcersService
     {
@@ -18,6 +17,12 @@ namespace EnforcerAPI.Services
         {
             var enforcers = await _enforcerRepository.GetAllAsync();
             return _mapper.Map<List<EnforcerSimpleDTO>>(enforcers);
+        }
+
+        public async Task<EnforcerDetailedDTO> GetSingleAsync(string id)
+        {
+            var enforcer = await _enforcerRepository.GetSingleAsync(id.ToUpper());
+            return _mapper.Map<EnforcerDetailedDTO>(enforcer);
         }
 
 

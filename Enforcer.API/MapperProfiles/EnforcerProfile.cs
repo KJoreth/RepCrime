@@ -6,6 +6,7 @@ namespace EnforcerAPI.MapperProfiles
         public EnforcerProfile()
         {
             CreateMap<Enforcer, EnforcerSimpleDTO>();
+            CreateMap<Enforcer, EnforcerDetailedDTO>();
         }
     }
 }
