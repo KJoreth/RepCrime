@@ -55,6 +55,18 @@ namespace CrimeAPI.Services
             return _mapper.Map<List<CrimeSimpleDTO>>(crimes);
         }
 
-            
+        public async Task<List<CrimeSimpleDTO>> GetAllSortedAsync()
+        {
+            var crimes = await _mongoDb.GetAllSortedAsync();
+            return _mapper.Map<List<CrimeSimpleDTO>>(crimes);
+        }
+
+        public async Task<List<CrimeSimpleDTO>> GetAllFromCategoryAsync(CrimeTypes category)
+        {
+            var crimes = await _mongoDb.GetAllFromCategoryAsync(category);
+            return _mapper.Map<List<CrimeSimpleDTO>>(crimes);
+        }
+
+
     }
 }

@@ -49,5 +49,11 @@
 
         public double GetCount()
             => (int)_crimesCollection.CountDocuments(_ => true);
+
+        public async Task<List<Crime>> GetAllSortedAsync()
+            => await _crimesCollection.Find(_ => true).SortByDescending(x => x.DateOfEvent).ToListAsync();
+
+        public async Task<List<Crime>> GetAllFromCategoryAsync(CrimeTypes category)
+            => await _crimesCollection.Find(x => x.CrimeType == category).ToListAsync();
     }
 }

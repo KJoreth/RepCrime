@@ -64,5 +64,18 @@
             return await _crimesService.GetPageAsync(page, max);
         }
 
+        [HttpGet("Newest")]
+        public async Task<ActionResult<List<CrimeSimpleDTO>>> GetAllSortedAsync()
+            => await _crimesService.GetAllSortedAsync();
+
+        [HttpGet("Category/{category}")]
+        public async Task<ActionResult<List<CrimeSimpleDTO>>> GetAllFromCategoryAsync(CrimeTypes category)
+        {
+            if(Enum.IsDefined(typeof(CrimeTypes), category))
+                return await _crimesService.GetAllFromCategoryAsync(category);
+
+            return BadRequest();
+        }
+
     }
 }
