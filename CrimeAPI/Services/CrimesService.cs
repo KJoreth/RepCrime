@@ -46,6 +46,15 @@ namespace CrimeAPI.Services
             await _mongoDb.UpdateAsync(crimeId, crime);
         }
 
+        public double GetCount()
+            => _mongoDb.GetCount();
+
+        public async Task<List<CrimeSimpleDTO>> GetPageAsync(int page, int max)
+        {
+            var crimes = await _mongoDb.GetPageAsync(page, max);
+            return _mapper.Map<List<CrimeSimpleDTO>>(crimes);
+        }
+
             
     }
 }

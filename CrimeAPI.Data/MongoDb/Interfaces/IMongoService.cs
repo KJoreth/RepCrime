@@ -4,6 +4,8 @@
     {
         Task CreateAsync(Crime crime);
         Task<List<Crime>> GetAllAsync();
+        double GetCount();
+        Task<List<Crime>> GetPageAsync(int page, int max);
         Task<Crime> GetSingleAsync(string id);
         Task UpdateAsync(string id, Crime crime);
     }

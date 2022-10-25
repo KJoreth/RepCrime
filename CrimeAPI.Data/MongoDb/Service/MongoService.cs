@@ -36,5 +36,18 @@
                 throw new ResourceNotFoundException($"Crime with Id {id} does not exists");
             await _crimesCollection.ReplaceOneAsync(x => x.Id == id, crime);
         }
+
+        public async Task<List<Crime>> GetPageAsync(int page, int max)
+        {
+            var result = await _crimesCollection
+                .Find(_ => true)
+                .Skip(max * (page - 1))
+                .Limit(max)
+                .ToListAsync();
+            return result;
+        }
+
+        public double GetCount()
+            => (int)_crimesCollection.CountDocuments(_ => true);
     }
 }

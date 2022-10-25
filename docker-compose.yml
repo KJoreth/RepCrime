@@ -23,7 +23,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - /data/db 
+      - mongo-db-data:/data/db 
 
   mssqldb:
     image: "mcr.microsoft.com/mssql/server:2022-latest"
@@ -35,4 +35,8 @@ services:
     ports:
         - 1433:1433
     volumes:
-      - /var/opt/mssql 
+      - mssql-db-data:/var/opt/mssql 
+
+volumes:
+  mongo-db-data:
+  mssql-db-data:

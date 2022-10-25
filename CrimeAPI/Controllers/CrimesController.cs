@@ -53,5 +53,16 @@
             return BadRequest("Invalid id format");
         }
 
+        [HttpGet("Page/{page}")]
+        public async Task<ActionResult<List<CrimeSimpleDTO>>> GetPageAsync(int page, int max)
+        {
+            var count = _crimesService.GetCount();
+            var pageCount = (max < count) ? count / max : 1; 
+            if (page > pageCount)
+                return BadRequest("Page index out of reach");
+
+            return await _crimesService.GetPageAsync(page, max);
+        }
+
     }
 }
