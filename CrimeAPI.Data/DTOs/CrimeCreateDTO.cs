@@ -10,5 +10,8 @@
         public string Description { get; set; }
         [Required]
         public string Place { get; set; }
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
     }
 }
