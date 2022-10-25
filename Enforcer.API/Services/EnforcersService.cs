@@ -42,6 +42,8 @@ namespace EnforcerAPI.Services
 
             if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 throw new ResourceNotFoundException($"Crime with id {crimeId} does not exist");
+            if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                throw new BadRequestException($"Id {crimeId} is not a valid");
 
             if (await _crimeRepository.AnyById(crimeId))
             {

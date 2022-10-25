@@ -22,6 +22,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
     ports:
       - 27017:27017
+    volumes:
+      - /data/db 
 
   mssqldb:
     image: "mcr.microsoft.com/mssql/server:2022-latest"
@@ -32,3 +34,5 @@ services:
       MSSQL_PID: "Express"
     ports:
         - 1433:1433
+    volumes:
+      - /var/opt/mssql 

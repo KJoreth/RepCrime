@@ -17,7 +17,7 @@
         {
             if(ObjectId.TryParse(id, out _))
                 return await _crimesService.GetSingleAsync(id);
-            return BadRequest();
+            return BadRequest("Invalid id format");
         }
 
         [HttpPost]
@@ -34,15 +34,23 @@
         [HttpPut("{id}/assign")]
         public async Task<IActionResult> AssignEnforcerAsync(string id, AssignRequest request)
         {
-            await _crimesService.AssingEnforcerAsync(id, request);
-            return Ok();
+            if (ObjectId.TryParse(id, out _))
+            {
+                await _crimesService.AssingEnforcerAsync(id, request);
+                return Ok();
+            }
+            return BadRequest("Invalid id format");
         }
 
         [HttpPut("{id}/status")]
         public async Task<IActionResult> UpdateCrimeStatusAsync(string id, CrimeStatus crimeStatus)
         {
-            await _crimesService.UpdateCrimeStatusAsync(id, crimeStatus);
-            return Ok();
+            if (ObjectId.TryParse(id, out _) && Enum.IsDefined(typeof(CrimeStatus), crimeStatus))
+            {
+                await _crimesService.UpdateCrimeStatusAsync(id, crimeStatus);
+                return Ok();
+            }
+            return BadRequest("Invalid id format");
         }
 
     }
