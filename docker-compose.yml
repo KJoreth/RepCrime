@@ -25,6 +25,18 @@ services:
     volumes:
       - mongo-db-data:/data/db 
 
+  mongodb-stats:
+    image: mongo
+    container_name: mongo-stats
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27018:27017
+    volumes:
+      - mongo-stats-db-data:/data/db 
+
   mssqldb:
     image: "mcr.microsoft.com/mssql/server:2022-latest"
     container_name: Hospital.Database
@@ -37,6 +49,13 @@ services:
     volumes:
       - mssql-db-data:/var/opt/mssql 
 
+  statsapi:
+    image: ${DOCKER_REGISTRY-}statsapi
+    build:
+      context: .
+      dockerfile: StatsAPI/Dockerfile
+
 volumes:
   mongo-db-data:
   mssql-db-data:
+  mongo-stats-db-data:
