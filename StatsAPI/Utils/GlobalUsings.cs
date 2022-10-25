@@ -12,4 +12,5 @@ global using StatsAPI.Services.Interfaces;
 global using StatsAPI.Services;
 global using Microsoft.AspNetCore.Mvc;
 global using StatsAPI.MongoDb.Service;
+global using StatsAPI.Middlewares;
 
