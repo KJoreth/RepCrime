@@ -15,6 +15,7 @@ builder.Services.AddCors(o => o.AddDefaultPolicy(builder =>
 }));
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<LoggingMiddleware>();
+builder.Services.AddHttpClient();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

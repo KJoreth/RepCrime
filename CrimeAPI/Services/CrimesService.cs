@@ -1,22 +1,26 @@
-﻿
-
-namespace CrimeAPI.Services
+﻿namespace CrimeAPI.Services
 {
     public class CrimesService : ICrimesService
     {
         private readonly IMongoService _mongoDb;
         private readonly IMapper _mapper;
-        public CrimesService(IMongoService mongoDb, IMapper mapper)
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _config;
+        public CrimesService(IMongoService mongoDb, IMapper mapper, IHttpClientFactory httpClientFactory, IConfiguration config)
         {
             _mongoDb = mongoDb;
             _mapper = mapper;
+            _httpClientFactory = httpClientFactory;
+            _config = config;
         }
 
         public async Task<CrimeDetailedDTO> CreateAsync(CrimeCreateDTO model)
         {
+            var httpClient = _httpClientFactory.CreateClient();
             Crime crime = _mapper.Map<Crime>(model);
             crime.Status = CrimeStatus.Waiting;
             await _mongoDb.CreateAsync(crime);
+            await httpClient.PostAsync($"{_config["StatsApiUrl"]}/CrimeUp", null);
             return _mapper.Map<CrimeDetailedDTO>(crime);
         }
 
@@ -41,8 +45,10 @@ namespace CrimeAPI.Services
 
         public async Task AssingEnforcerAsync(string crimeId, AssignRequest request)
         {
+            var httpClient = _httpClientFactory.CreateClient();
             var crime = await _mongoDb.GetSingleAsync(crimeId);
             crime.EnforcerId = request.EnforcerId;
+            await httpClient.PostAsync($"{_config["StatsApiUrl"]}/EnforcerUp", null);
             await _mongoDb.UpdateAsync(crimeId, crime);
         }
 
