@@ -12,4 +12,5 @@ global using RepCrime.Common.Models;
 global using RepCrime.Common.Exeptions;
 global using EnforcerAPI.Middlewares;
 global using EnforcerAPI.Data.Seeder;
+global using EnforcerAPI.Extensions;
 

@@ -1,31 +1,22 @@
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 var connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
 builder.Services.AddDbContext<EnforcerContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddScoped<IEnforcerRepository, EnforcerRepository>();
-builder.Services.AddScoped<ICrimeRepository, CrimeRepository>();
-builder.Services.AddScoped<IEnforcersService, EnforcersService>();
+builder.Services.AddCustomServices();
+builder.Services.AddCustomMiddlewares();
 builder.Services.AddHttpClient();
-builder.Services.AddScoped<ErrorHandlingMiddleware>();
-builder.Services.AddScoped<LoggingMiddleware>();
+
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.SeedDatabse();
 app.UseMiddleware<LoggingMiddleware>();

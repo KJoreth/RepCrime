@@ -7,3 +7,4 @@ global using RabbitMQ.Client.Events;
 global using RepCrime.Common.Services.Interfaces;
 global using RepCrimeEmailAPI.HostedServices;
 global using RepCrime.Common.Services;
+global using RepCrimeEmailAPI.Extensions;

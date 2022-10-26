@@ -16,3 +16,5 @@ global using CrimeAPI.Middlewares;
 global using RabbitMQ.Client;
 global using RepCrime.Common.Services.Interfaces;
 global using System.Text;
+global using RepCrime.Common.Services;
+global using CrimeAPI.Extensions;
