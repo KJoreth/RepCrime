@@ -1,3 +1,5 @@
+using RepCrime.Common.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,6 +18,8 @@ builder.Services.AddCors(o => o.AddDefaultPolicy(builder =>
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<LoggingMiddleware>();
 builder.Services.AddHttpClient();
+builder.Services.AddSingleton<IRabbitMqConnector, RabbitMqConnector>();
+builder.Services.AddSingleton<IRabbitMqSennder, RabbitMqSennder>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

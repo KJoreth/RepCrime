@@ -13,3 +13,6 @@ global using RepCrime.Common.Enums;
 global using RepCrime.Common.Models;
 global using RepCrime.Common.Exeptions;
 global using CrimeAPI.Middlewares;
+global using RabbitMQ.Client;
+global using RepCrime.Common.Services.Interfaces;
+global using System.Text;

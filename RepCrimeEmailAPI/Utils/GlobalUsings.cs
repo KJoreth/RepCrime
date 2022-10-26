@@ -1,0 +1,9 @@
+﻿global using RepCrimeEmailAPI.Services;
+global using System.Net;
+global using System.Net.Mail;
+global using System.Text;
+global using RabbitMQ.Client;
+global using RabbitMQ.Client.Events;
+global using RepCrime.Common.Services.Interfaces;
+global using RepCrimeEmailAPI.HostedServices;
+global using RepCrime.Common.Services;

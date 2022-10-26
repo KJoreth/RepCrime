@@ -6,12 +6,18 @@ services:
     build:
       context: .
       dockerfile: CrimeAPI/Dockerfile
+    depends_on:
+      - mongodb
+      - rabbitMQ
 
   enforcerapi:
     image: ${DOCKER_REGISTRY-}enforcerapi
     build:
       context: .
       dockerfile: Enforcer.API/Dockerfile
+    depends_on:
+      - mssqldb
+
   
   mongodb:
     image: mongo
@@ -55,7 +61,20 @@ services:
       context: .
       dockerfile: StatsAPI/Dockerfile
 
+  emailapi:
+    image: ${DOCKER_REGISTRY-}repcrimeemailapi
+    build:
+      context: .
+      dockerfile: RepCrimeEmailAPI/Dockerfile
+
+  rabbitMQ:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
 volumes:
   mongo-db-data:
   mssql-db-data:
   mongo-stats-db-data:
+

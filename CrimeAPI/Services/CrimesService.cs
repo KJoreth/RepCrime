@@ -6,12 +6,15 @@
         private readonly IMapper _mapper;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _config;
-        public CrimesService(IMongoService mongoDb, IMapper mapper, IHttpClientFactory httpClientFactory, IConfiguration config)
+        private readonly IRabbitMqSennder _rabbitMqSennder;
+        public CrimesService(IMongoService mongoDb, IMapper mapper, IHttpClientFactory httpClientFactory, 
+            IConfiguration config, IRabbitMqSennder rabbitMqSennder)
         {
             _mongoDb = mongoDb;
             _mapper = mapper;
             _httpClientFactory = httpClientFactory;
             _config = config;
+            _rabbitMqSennder = rabbitMqSennder;
         }
 
         public async Task<CrimeDetailedDTO> CreateAsync(CrimeCreateDTO model)
@@ -49,6 +52,7 @@
             var crime = await _mongoDb.GetSingleAsync(crimeId);
             crime.EnforcerId = request.EnforcerId;
             await httpClient.PostAsync($"{_config["StatsApiUrl"]}/EnforcerUp", null);
+            _rabbitMqSennder.PublishMessage(crime.Email);
             await _mongoDb.UpdateAsync(crimeId, crime);
         }
 
