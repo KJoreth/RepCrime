@@ -1,7 +1,9 @@
 # RepCrime
+---
 To run this application you need to have Docer Desktop installed on your system.
 All vulnerable data are stored inside user secrets - therefore you need to add your own before starting.
     Secrets needed:
+    
     - CrimeApi
         {
             "MongoDb": {
